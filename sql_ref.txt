@@ -1,0 +1,78 @@
+
+BEGIN TRANSACTION;
+
+CREATE TABLE IF NOT EXISTS users (
+		user_id INTEGER PRIMARY KEY,
+		email VARCHAR(50) UNIQUE,
+		pass_hash VARCHAR(20) NOT NULL,
+		create_date DATETIME DEFAULT current_timestamp,
+		updt_date DATETIME DEFAULT current_timestamp,
+		pool_id INTEGER
+		addr TEXT,
+		city VARCHAR(50),
+		zip INTEGER,
+		state VARCHAR(2),
+		active INTEGER DEFAULT 0
+		
+	);
+
+/*
+	CREATE TABLE IF NOT EXISTS inventory (
+		inv_id INTEGER PRIMARY KEY,
+		name VARCHAR(20) NOT NULL,
+		description TEXT,
+		price NUMERIC NOT NULL CHECK(price >= 0),
+		quantity INTEGER NOT NULL CHECK(quantity >= 0),
+		item_catg INTEGER NOT NULL CHECK(item_catg > 0)	
+	);
+	CREATE TABLE IF NOT EXISTS item_catg_rules(
+		item_catg_id INTEGER PRIMARY KEY,
+		item_catg_desc TEXT,
+		FOREIGN KEY(item_catg_id) REFERENCES inventory(item_catg)
+	);	
+	CREATE TABLE IF NOT EXISTS item_img_path(
+		id INTEGER PRIMARY KEY,
+		inv_id INTEGER NOT NULL,--fk to inventory tables id
+		image_file TEXT NOT NULL DEFAULT 'default.png', --url and shit naming
+		img_catg INTEGER CHECK(img_catg >= 0), --want 1 zero per item which will show as pic
+		FOREIGN KEY(inv_id) REFERENCES inventory(id)
+	);
+	CREATE VIEW vw_inv_img_join AS
+		SELECT A.name, A.description, A.price,
+		  B.img_file, A.item_catg_id, A.inv_id
+		FROM inventory A 
+		JOIN item_img_path B ON A.inv_id = B.inv_id
+		WHERE img_catg = 0;
+	
+	CREATE TABLE IF NOT EXISTS trans_rules(
+		id INTEGER PRIMARY KEY,
+		first_name TEXT,
+		last_name TEXT,
+		address TEXT,
+		card_num TEXT,
+		total NUMERIC,
+		trans_date DATETIME DEFAULT current_timestamp
+	);
+	CREATE TABLE IF NOT EXISTS trans_details(
+		tran_id INTEGER NOT NULL,
+		item_id INTEGER NOT NULL, --can have multiple items per trans
+		return_stat INTEGER NOT NULL default 0,
+		FOREIGN KEY(tran_id) REFERENCES trans_rules(id),
+		FOREIGN KEY(item_id) REFERENCES inventory(id)
+	);
+	INSERT INTO inventory SELECT 1, 'First Item', 'THIS is the description', 22.99, 10, 1; --item catg 1 is stabalizer
+	INSERT INTO inventory SELECT 2, 'Second Item Stabalizer', 'THIS is the description for the stabalizer', 45.95, 20, 1; --item catg 1 is stabalizer
+	INSERT INTO inventory SELECT 3, 'First Chlorine', 'THIS is the descriptino of Chlorine', 10.50, 5, 2; --item catg 1 is chlorine
+	INSERT INTO inventory SELECT 4, 'First Salt', 'THIS is the description for all the salt in the world', 25.99, 2, 3; --item catg 3 is salt
+	INSERT INTO item_catg_rules SELECT 1, 'Stabalizer';
+	INSERT INTO item_catg_rules SELECT 2, 'Chlorine';
+	INSERT INTO item_catg_rules SELECT 3, 'Salt';
+	INSERT INTO item_img_path SELECT 1, 1, 'default.png', 0;
+	INSERT INTO item_img_path SELECT 2, 2, 'pic1.png', 0;
+	INSERT INTO item_img_path SELECT 3, 3, 'pic2_1.png', 0;
+	INSERT INTO item_img_path SELECT 4, 3, 'pic2_2.png', 1;
+	INSERT INTO item_img_path SELECT 5, 4, 'pic2.png', 0;
+*/
+COMMIT;
+
+

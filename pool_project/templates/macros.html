@@ -1,0 +1,16 @@
+{% macro shoppingCart() %}
+    <div class="cart-layout">
+        <div onclick='Cart.toggle_cart();' class="cart-overlay"><!--onclick='closeCart()'> <!--Onclick was add so if you click outside the cart you can get your shop on-->
+        </div>
+        <div class="cart">
+            <span class="close-cart">
+                <i onclick='Cart.toggle_cart();' class="fas fa-window-close"></i>
+            </span>
+            <h2>Cart</h2>
+            <div class="cart-content" id='cart-content'>
+                
+            </div>           
+        </div>
+    </div>
+{% endmacro %}
+

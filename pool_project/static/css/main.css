@@ -1,0 +1,84 @@
+#nav-hold{
+    z-index: 5;
+}
+.inv-btn{
+    width: 100%;
+    padding: 5px;
+}
+
+#divheight{
+    height: 20%;
+}
+
+#cart-items-div{
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    padding: 0 5px;
+    border-radius: 30%;
+    
+}
+#nav-cart:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/*cart  #6c757d;*/
+
+  .cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    z-index: 20;
+    background: rgb(231, 226, 221);
+    padding: 1.5rem;
+    opacity: 1;
+
+  }
+  .cart-layout{
+    visibility: hidden;
+  }
+  .cart-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #007bff;
+    opacity: 0.7;
+    z-index: 19;
+   
+  }
+  .transparentBcg {
+    visibility: hidden;
+  }
+  @media screen and (min-width: 768px) {
+    .cart {
+      width: 30vw;
+      min-width: 450px;
+    }
+  }
+  
+  .close-cart {
+    font-size: 1.7rem;
+    cursor: pointer;
+  }
+  .cart h2 {
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+.remove-item{
+      color: red;
+      text-transform: capitalize;
+  }
+.remove-item:hover{
+    cursor: pointer;
+}
+i:hover {
+    cursor: pointer;
+}

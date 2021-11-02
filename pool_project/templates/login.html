@@ -1,0 +1,36 @@
+{% extends 'template.html' %}
+
+{% block content %}
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.email.label(class='form-control-label') }}
+            {% if form.email.errors %}
+                {{ form.email(class='form-control form-control-lg is-invalid') }}
+                {% for error in form.email.errors %}
+                    <small class="text-danger">{{error}}</small>
+                {% endfor %}
+            {% else %}
+                {{ form.email(class='form-control form-control-lg' ) }}
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.password.label(class='form-control-label') }}
+            {% if form.password.errors %}
+                {{ form.password(class='form-control form-control-lg is-invalid') }}
+                {% for error in form.password.errors %}
+                    <small class="text-danger">{{error}}</small>
+                {% endfor %}
+            {% else %}
+                {{ form.password(class='form-control form-control-lg' ) }}
+            {% endif %}
+        </div>
+        {{ form.submit(class='btn btn-primary') }}
+    </form>
+    <br>
+    <p><a href="{{ url_for('reset_token') }}">Forgot Password?</a></p>
+    <br>
+    <p><a href="{{ url_for('register') }}">Need an account?</a></p>
+    
+{% endblock content %}
